@@ -1,0 +1,49 @@
+@import url(base.css);
+
+a, a:visited {
+    color: var(--black-clr);
+}
+
+:root {
+    --white-clr: #fff;
+    --black-clr: #000;
+    --font-clr: #000;
+    --font-clr-neg: #fff;
+    --hover-clr: #dd9b00;
+    --grey-clr: #c0c0c0;
+    --orange-clr: #ffbf28;
+    --order-clr: #f1f1f1;
+}
+
+._hover {
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+._hover:hover {
+    color: var(--hover-clr);
+}
+.url-img-style {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+._btn-hover {
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+._btn-hover:hover {
+    filter: invert();
+}
+._title {
+    padding: .5rem 1rem;
+    background-color: var(--black-clr);
+    color: var(--white-clr);
+    display: inline-block;
+    border-radius: 1rem;
+}
+.quad-img::after{
+    content: '';
+    display: block;
+    padding: 100% 0 0 0;
+    /* background-color: #000; */
+}
