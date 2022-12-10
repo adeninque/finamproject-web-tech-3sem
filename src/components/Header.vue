@@ -1,11 +1,19 @@
 <template>
+    <div class="menu">
+        <div class="menu__title" @click="(menu = !menu)">menu</div>
+        <div class="menu__body container" :class="{_open:menu}">
+            <nav class="menu__content">
+                <router-link class="menu__item" v-for="c in cats" :key="c" :to="{name: 'cat', params: {cat: c}}">{{ c }}</router-link>
+            </nav>
+        </div>
+    </div>
     <div class="header">
         <div class="header__body container">
             <div class="header__logo logo">
                 <div class="logo__img"></div>
                 <div><router-link class="logo__text" :to="{name: 'home'}">AIRRUN</router-link></div>
             </div>
-            <nav class="header__nav nav" v-show="!menu">
+            <nav class="header__nav nav">
                 <router-link class="nav__item _hover" v-for="c in cats" :key="c" :to="{name: 'cat', params: {cat: c}}">{{ c }}</router-link>
             </nav>
             <input type="text" class="header__search" placeholder="search" v-model="searchText">
@@ -156,9 +164,48 @@ export default {
 		}
 }
 
+.menu {
+    background-color: var(--black-clr);
+    color: var(--font-clr-neg);
+    display: none;
+    cursor: pointer;
+		&__title {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: .5rem;
+		}
+
+		&__body {
+            // height: auto;
+            height: 0;
+            overflow: hidden;
+            transition: .3s ease-in-out;
+
+            &._open {
+                height: auto;
+                padding: 1rem;
+            }
+		}
+
+		&__content {
+		}
+
+		&__item {
+            color: var(--font-clr-neg);
+		}
+}
+.container {
+}
+
+
 @media screen and (max-width: 764px) {
     .nav {
         display: none;
+    }
+
+    .menu {
+        display: block;
     }
 }
 
